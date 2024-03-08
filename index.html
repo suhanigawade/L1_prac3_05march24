@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <title> App 3 by Kamal sir </title>
@@ -7,19 +6,27 @@
 body{ background-color: #FFE5B4; }
 </style>
 <script>
-function show(){
-event.preventDefault();
-let name = document.getElementById("name");
-let msg = document.getElementById("msg");
-let d = new Date();
-let hr = d.getHours();
-if(hr<12)
-msg.innerHTML = "Good Morning " + name.value;
-else if(hr < 16)
-msg.innerHTML = "Good Afternoon " + name.value;
-else
-
-msg.innerHTML = "Good Evening " + name.value;
+function show(event){
+    event.preventDefault();
+    let name = document.getElementById("name");
+    let msg = document.getElementById("msg");
+    let d = new Date();
+    let hr = d.getHours();
+    let nameValue = name.value.trim();
+    if(nameValue === "") {
+        alert("Please enter your name.");
+        return;
+    }
+    if (!/^[a-zA-Z]+$/.test(nameValue)) {
+        alert("Please enter alphabets only.");
+        return;
+    }
+    if(hr < 12)
+        msg.innerHTML = "Good Morning " + nameValue;
+    else if(hr < 16)
+        msg.innerHTML = "Good Afternoon " + nameValue;
+    else
+        msg.innerHTML = "Good Evening " + nameValue;
 }
 </script>
 </head>
@@ -27,12 +34,12 @@ msg.innerHTML = "Good Evening " + name.value;
 <body>
 <center>
 <h1> Greeting app </h1>
-<form onsubmit = "show()">
-<input type = "text" placeholder="Enter your name" id = "name"/>
+<form onsubmit="show(event)">
+<input type="text" placeholder="Enter your name" id="name"/>
 <br><br>
 <input type="submit"/>
 </form>
-<h2 id ="msg" />
+<h2 id="msg"></h2>
 </center>
 </body>
 </html>
