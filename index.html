@@ -1,0 +1,38 @@
+
+<html>
+<head>
+<title> App 3 by Kamal sir </title>
+<style>
+*{font-size: 50px; font-family: Century;}
+body{ background-color: #FFE5B4; }
+</style>
+<script>
+function show(){
+event.preventDefault();
+let name = document.getElementById("name");
+let msg = document.getElementById("msg");
+let d = new Date();
+let hr = d.getHours();
+if(hr<12)
+msg.innerHTML = "Good Morning " + name.value;
+else if(hr < 16)
+msg.innerHTML = "Good Afternoon " + name.value;
+else
+
+msg.innerHTML = "Good Evening " + name.value;
+}
+</script>
+</head>
+
+<body>
+<center>
+<h1> Greeting app </h1>
+<form onsubmit = "show()">
+<input type = "text" placeholder="Enter your name" id = "name"/>
+<br><br>
+<input type="submit"/>
+</form>
+<h2 id ="msg" />
+</center>
+</body>
+</html>
